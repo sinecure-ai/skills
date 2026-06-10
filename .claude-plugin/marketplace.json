@@ -1,5 +1,7 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "sinecure-marketplace",
+  "description": "Sinecure, Inc.'s recruiting & platform skills for Claude Code. Auto-syncing skill content across Grace Blue, Strategy Source, The Second Shift, and Sinecure.ai.",
   "owner": {
     "name": "Sinecure, Inc.",
     "url": "https://github.com/sinecure-ai"
@@ -7,8 +9,8 @@
   "plugins": [
     {
       "name": "sinecure-skills",
-      "source": ".",
       "description": "Sinecure recruiting & platform skills with auto-syncing content.",
+      "source": "./",
       "version": "1.0.0",
       "category": "workflow"
     }

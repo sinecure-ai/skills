@@ -6,5 +6,8 @@
     "name": "Sinecure, Inc.",
     "url": "https://github.com/sinecure-ai"
   },
-  "hooks": "./hooks/hooks.json"
+  "hooks": "./hooks/hooks.json",
+  "homepage": "https://github.com/sinecure-ai/skills",
+  "repository": "https://github.com/sinecure-ai/skills",
+  "license": "MIT"
 }
