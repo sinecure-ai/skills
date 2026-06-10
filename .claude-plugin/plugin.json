@@ -2,6 +2,9 @@
   "name": "sinecure-skills",
   "version": "1.0.0",
   "description": "Sinecure's recruiting and platform skills. Thin plugin shell; skill content is auto-synced from this same repo at session start.",
-  "author": "Sinecure, Inc.",
+  "author": {
+    "name": "Sinecure, Inc.",
+    "url": "https://github.com/sinecure-ai"
+  },
   "hooks": "./hooks/hooks.json"
 }
