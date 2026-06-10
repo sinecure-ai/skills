@@ -1,0 +1,16 @@
+{
+  "name": "sinecure-marketplace",
+  "owner": {
+    "name": "Sinecure, Inc.",
+    "url": "https://github.com/sinecure-ai"
+  },
+  "plugins": [
+    {
+      "name": "sinecure-skills",
+      "source": ".",
+      "description": "Sinecure recruiting & platform skills with auto-syncing content.",
+      "version": "1.0.0",
+      "category": "workflow"
+    }
+  ]
+}
