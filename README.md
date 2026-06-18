@@ -32,15 +32,23 @@ gets bundled into the stale, git-less cache copy and registered as a native
 skill. Putting content in `content/` keeps a single source of truth — the
 hook-synced clone — and avoids a stale duplicate showing up in the picker.
 
-## Install (team members)
+## Install
+
+### CLI (Claude Code terminal)
 
 ```
 /plugin marketplace add sinecure-ai/skills
 /plugin install sinecure-skills@sinecure-marketplace
 ```
 
-Restart the session. On first start the hook clones the content; on every later
-start it syncs.
+### Desktop app
+
+1. Open **Customize → Add plugin** (the plugins/marketplace panel).
+2. Paste the repo URL: `https://github.com/sinecure-ai/skills`
+3. Click **Sync**, then install **sinecure-skills**.
+
+Either way: restart the session afterward. On first start the hook clones the
+content; on every later start it syncs.
 
 ## Configuration (optional env vars)
 
