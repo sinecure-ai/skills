@@ -116,7 +116,7 @@ node /path/to/skill/scripts/build_docx.js /tmp/cv_payload.json
 Where `/tmp/cv_payload.json` contains:
 ```json
 {
-  "cv_data": { ... },
+  "cv_data": {  },
   "prepared_by": "First Last",
   "date": "March 10, 2026",
   "output_path": "/path/to/FirstName_LastName_GBCV.docx",
@@ -198,7 +198,6 @@ Present in this order — convert "Last, First" to "First Last" for document:
 7. Lasiter, Laura → Laura Lasiter
 8. Melcher, Randy → Randy Melcher
 9. Steib, Kemp → Kemp Steib
-
 ---
 
 ## Handling Edge Cases

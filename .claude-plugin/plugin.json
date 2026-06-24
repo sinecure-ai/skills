@@ -1,10 +1,22 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "sinecure-skills",
-  "version": "1.0.0",
-  "description": "Sinecure's recruiting and platform skills. Thin plugin shell; skill content is auto-synced from this same repo at session start.",
+  "displayName": "Sinecure Skills",
+  "description": "Sinecure's recruiting and platform skills, bundled natively. Includes a unified retained/volume/fractional search workflow and a Grace Blue CV reformatter.",
   "author": {
     "name": "Sinecure, Inc.",
     "url": "https://github.com/sinecure-ai"
   },
-  "hooks": "./hooks/hooks.json"
+  "homepage": "https://github.com/sinecure-ai/skills",
+  "repository": "https://github.com/sinecure-ai/skills",
+  "license": "MIT",
+  "keywords": [
+    "recruiting",
+    "executive-search",
+    "grace-blue",
+    "sinecure",
+    "cv",
+    "gbcv",
+    "shortlist"
+  ]
 }
