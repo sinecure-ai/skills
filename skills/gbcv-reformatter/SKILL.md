@@ -39,6 +39,7 @@ Who prepared these CVs? Please select:
 7. Lasiter, Laura
 8. Melcher, Randy
 9. Steib, Kemp
+10. Zaidi, Sajjad
 ```
 
 Convert the selection to "First Last" format for the cover page (e.g. "Helen Duffy").
@@ -198,6 +199,7 @@ Present in this order — convert "Last, First" to "First Last" for document:
 7. Lasiter, Laura → Laura Lasiter
 8. Melcher, Randy → Randy Melcher
 9. Steib, Kemp → Kemp Steib
+10. Zaidi, Sajjad -> Sajjad Zaidi
 ---
 
 ## Handling Edge Cases
