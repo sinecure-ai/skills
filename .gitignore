@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# JetBrains IDEs
+.idea/
+
+# Local editor/agent state
+.claude/settings.local.json

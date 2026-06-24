@@ -1,38 +1,26 @@
 # sinecure-skills
 
-Sinecure's recruiting & platform skills, delivered as a single Claude Code /
-Cowork plugin with **auto-syncing content**. One repo holds both the thin
-plugin shell and the skill content; teammates get fresh skills every session
-without running any command.
+Sinecure's recruiting & platform skills, delivered as a Claude Code / Cowork
+plugin. All skills are **bundled natively** in this repo, so they work
+everywhere the plugin is installed — CLI, desktop app, and Cowork remote
+sandboxes alike.
 
-## How it works (and why it's built this way)
-
-When Claude installs a plugin from a marketplace, it stores a **pinned,
-git-less copy** under `~/.claude/plugins/cache/.../<version>/`. That copy
-cannot update itself — bundled skills go stale until someone runs
-`claude plugin update`.
-
-To keep content fresh automatically, this plugin ships only a **bootstrap
-skill** plus a **session-start hook**. The hook maintains its own git clone of
-this repo at `~/.claude/sinecure-skills` and fast-forwards it each session. The
-bootstrap skill reads skill content live from that clone's `content/` folder.
+## Layout
 
 ```
-This repo (sinecure-ai/skills)
+sinecure-ai/skills
 ├── .claude-plugin/        plugin + marketplace metadata
-├── hooks/                 session-start sync hook
-├── skills/                bootstrap skill (the ONLY natively-bundled skill)
-│   └── using-sinecure-skills/SKILL.md
-└── content/               the actual skills — read live from the synced clone
-    └── retained-search-workflow/SKILL.md
+└── skills/                the skills — each a folder with a SKILL.md
+    ├── using-sinecure-skills/   lightweight index / router (optional)
+    ├── retained-search-workflow/
+    └── gbcv-reformatter/
 ```
 
-**Why content lives in `content/`, not `skills/`:** anything under `skills/`
-gets bundled into the stale, git-less cache copy and registered as a native
-skill. Putting content in `content/` keeps a single source of truth — the
-hook-synced clone — and avoids a stale duplicate showing up in the picker.
+Every skill lives under `skills/` and is auto-discovered by Claude Code via its
+`SKILL.md` frontmatter. No hooks, no runtime sync — the same plain native
+pattern as a normal plugin.
 
-## Install
+## Install (team members)
 
 ### CLI (Claude Code terminal)
 
@@ -47,41 +35,52 @@ hook-synced clone — and avoids a stale duplicate showing up in the picker.
 2. Paste the repo URL: `https://github.com/sinecure-ai/skills`
 3. Click **Sync**, then install **sinecure-skills**.
 
-Either way: restart the session afterward. On first start the hook clones the
-content; on every later start it syncs.
+Restart the session after installing.
 
-## Configuration (optional env vars)
+## Updating
 
-| Variable                 | Default                                          | Purpose                          |
-|--------------------------|--------------------------------------------------|----------------------------------|
-| `SINECURE_SKILLS_REPO`   | `https://github.com/sinecure-ai/skills.git`      | Source of skill content          |
-| `SINECURE_SKILLS_BRANCH` | `main`                                           | Branch to track                  |
-| `SINECURE_SKILLS_DIR`    | `~/.claude/sinecure-skills`                      | Where content is cloned          |
-| `SINECURE_AUTO_UPDATE`   | `true`                                           | `false` = warn only, never pull  |
+Skills ship with the plugin, so new versions arrive when the plugin updates.
 
-## Editing skills
+**Recommended — turn on auto-update once, then it's hands-off.** Claude Code
+auto-updates plugins at startup, but for third-party marketplaces this is OFF
+by default. Enable it per user via `/plugin` → Marketplaces → `sinecure-marketplace`
+→ enable auto-update, or org-wide via managed `settings.json`:
 
-Each skill is a folder with a `SKILL.md` under `content/`. Edit, commit, push.
-Every teammate picks up the change on their next session — no command needed.
+```json
+{
+  "extraKnownMarketplaces": {
+    "sinecure-marketplace": {
+      "source": { "source": "github", "repo": "sinecure-ai/skills" },
+      "autoUpdate": true
+    }
+  }
+}
+```
+
+**Manual fallback:** `claude plugin update sinecure-skills@sinecure-marketplace`
+(or re-sync the marketplace in the desktop app).
+
+This plugin uses **commit-SHA versioning** — neither manifest declares a
+`version`, so every commit to `main` is treated as a new version. Just edit a
+skill, commit, and push; with auto-update on, teammates pick it up at their next
+startup. No version bump, no manual update command. (If you later want stable,
+controlled releases instead, add `"version": "x.y.z"` to `plugin.json` and bump
+it on each release.)
+
+> There is no zero-touch git auto-pull baked into the plugin. Remote sandboxes
+> (Cowork / claude.ai) can't reach a local clone, and plugin hooks don't run
+> there, so reliable cross-environment delivery comes from bundling skills and
+> letting the client's plugin auto-update handle freshness.
+
+## Editing & adding skills
+
+Each skill is a folder under `skills/` with a `SKILL.md` (plus optional
+`scripts/`, `references/`, `assets/`). To add a skill: drop its folder in
+`skills/`, optionally list it in `using-sinecure-skills/SKILL.md`, bump the
+version, commit, and push.
 
 ### Versioning convention
 
-There's no built-in skill versioning, so by convention:
 - Add a comment near the top of each `SKILL.md` body: `<!-- Version X.Y.Z — Month Year -->`
 - Bump it on meaningful behavior changes.
 - Use commit history for the real changelog.
-
-## Local edits & forks
-
-The sync hook is safe with local work:
-- **ahead** of upstream (local commits) → stays silent.
-- **behind** → fast-forwards (only when the working tree is clean).
-- **diverged** → warns and leaves resolution to you.
-
-So you can experiment in `~/.claude/sinecure-skills` without the hook clobbering
-your changes.
-
-## What updates how
-
-- **Skill content** → automatic, via the session-start hook. No command.
-- **Plugin shell** (hook logic, bootstrap) → `claude plugin update sinecure-skills@sinecure-marketplace`, rarely.
