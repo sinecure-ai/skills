@@ -20,9 +20,9 @@ tool to load whichever one fits the task.
   shortlist, references, offer/negotiation, placement, and (fractional) renewals.
 - **`gbcv-reformatter`** — reformats candidate CVs/resumes (PDF, DOCX, DOC) into
   the Grace Blue branded GBCV `.docx` format.
-- **`mcp-smoke-test`** — connectivity probe for the Sinecure MCP connector
-  (explorator); calls the read-only `users_info` tool to verify a skill can
-  reach an MCP tool.
+- **`find-past-candidates`** — searches the connected ATS by job title (with
+  optional broadening to similar titles) to resurface candidates we considered
+  before for a role we're hiring now. Read-only; uses the explorator connector.
 
 ## How to use
 
