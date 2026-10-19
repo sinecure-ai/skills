@@ -40,7 +40,8 @@ Who prepared these CVs? Please select:
 8. Melcher, Randy
 9. Steib, Kemp
 10. Zaidi, Sajjad
-11. Muhammad, Zain
+11. Zain, Muhammad
+12. Pardhi, UmaShankar
 ```
 
 Convert the selection to "First Last" format for the cover page (e.g. "Helen Duffy").
@@ -202,6 +203,7 @@ Present in this order — convert "Last, First" to "First Last" for document:
 9. Steib, Kemp → Kemp Steib
 10. Zaidi, Sajjad -> Sajjad Zaidi
 11. Zain, Muhammad -> Muhammad Zain
+12. Pardhi, UmaShankar -> UmaShankar Pardhi
 ---
 
 ## Handling Edge Cases
