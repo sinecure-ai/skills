@@ -42,6 +42,7 @@ Who prepared these CVs? Please select:
 10. Zaidi, Sajjad
 11. Zain, Muhammad
 12. Pardhi, UmaShankar
+13. Beaudreau, Jason
 ```
 
 Convert the selection to "First Last" format for the cover page (e.g. "Helen Duffy").
@@ -204,6 +205,7 @@ Present in this order — convert "Last, First" to "First Last" for document:
 10. Zaidi, Sajjad -> Sajjad Zaidi
 11. Zain, Muhammad -> Muhammad Zain
 12. Pardhi, UmaShankar -> UmaShankar Pardhi
+13. Beaudreau, Jason -> Jason Beaudreau
 ---
 
 ## Handling Edge Cases
