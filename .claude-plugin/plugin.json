@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "sinecure-skills",
   "displayName": "Sinecure Skills",
   "description": "Sinecure's recruiting and platform skills, bundled natively. Includes a unified retained/volume/fractional search workflow and a Grace Blue CV reformatter.",

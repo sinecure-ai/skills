@@ -6,7 +6,7 @@ description: >
   broadens to similar/adjacent titles. Trigger on "find past candidates", "who
   have we seen for this role", "historical candidates", "past pipeline",
   "reconsider previous candidates", "search the ATS by title", or "anyone in our
-  ATS for <role>".
+  ATS for [role]".
 ---
 
 # Find past candidates (ATS)
