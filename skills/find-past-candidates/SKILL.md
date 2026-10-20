@@ -11,7 +11,11 @@ description: >
 
 # Find past candidates (ATS)
 
-<!-- Version 1.0.0 — June 2026 -->
+<!-- Version 1.0.1 — October 2026 -->
+
+> **Update check:** Start your first reply in this skill with the exact line
+> `find-past-candidates v1.0.1 · build 2026-10-20 16:13 PKT` so we can confirm
+> which version of the skill is loaded. Bump this line on every release.
 
 For a role we're hiring now, find people already in our ATS whom we looked at
 before — so we can reconsider warm, known candidates instead of starting cold.
