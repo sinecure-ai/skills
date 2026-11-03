@@ -4,7 +4,6 @@ GBCV Skill - CV Reformatter
 Auto-batching: processes in groups of BATCH_SIZE (default 3).
 Fail-and-continue: a bad file is skipped, never stops the run.
 """
-import utils.session
 import os, sys, json, shutil, subprocess, tempfile, argparse
 from pathlib import Path
 from datetime import datetime
